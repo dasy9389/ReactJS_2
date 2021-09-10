@@ -1,0 +1,20 @@
+.navbar{
+	background-color: #333;
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5rem 9%;
+}
+.navbar li{
+    list-style: none;
+}
+.navbar a{
+	font-size: 1.7rem;
+	color: #fff;
+	margin-left: 2rem;
+    text-decoration: none;
+}
+.navbar a:hover,  .header .navbar a.active{
+	color: var(--main-color);
+}
