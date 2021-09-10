@@ -4,7 +4,11 @@ import reactDom from "react-dom";
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.state = { data: [] };
+    this.state = { 
+      data: [],
+      data2: ''
+    };
+
     // this.setStateHandler = this.setStateHandler.bind(this);
   }
   setStateHandler = () =>{
@@ -27,6 +31,16 @@ class App extends React.Component{
     //findDOMNode kiem tra xem co class do ko?
   }
 
+  updateState = (e) => {
+    this.setState({data2 : e.target.value}); //target.value la lay du lieu khi ngta nhap vo
+  }
+
+  clearInput = () => {
+    this.setState({data2:''});
+    reactDom.findDOMNode(this.refs.myInput).focus();
+    // refs khuyen cao ko sai nua vi co the bi loi, nen sai useRef() hoac createRef()
+  }
+
   render(){
     return(
       <div>
@@ -39,6 +53,10 @@ class App extends React.Component{
         <button onClick={this.findDomNodeHandler}>FIND DOM</button>
         <div id='myDiv'>NODE</div>
 
+        <br /><br /><br />
+        <input value={this.state.data2} onChange={this.updateState} ref='myInput'></input>
+        <button onClick={this.clearInput}>CLEAR</button>
+        <h4>{this.state.data2}</h4>
       </div>
     );
   }
